@@ -10,16 +10,18 @@ class SignUp extends StatefulWidget {
   @override
   State<SignUp> createState() => _SignUpState();
 }
-     bool hiddenpaas=true;
-var erruname,errfname,errlname,erremail,errpass;
+
+bool hiddenpaas = true;
+var erruname, errfname, errlname, erremail, errpass;
+
 class _SignUpState extends State<SignUp> {
   final TextEditingController usernameeController = new TextEditingController();
 
   final TextEditingController FirstnameController = new TextEditingController();
 
-  final TextEditingController LastnameController  = new TextEditingController();
+  final TextEditingController LastnameController = new TextEditingController();
 
-  final TextEditingController emailController     = new TextEditingController();
+  final TextEditingController emailController = new TextEditingController();
 
   final TextEditingController passworddController = new TextEditingController();
 
@@ -27,8 +29,7 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body:
-      Column(
+      body: Column(
         children: <Widget>[
           Expanded(
             flex: 2,
@@ -36,8 +37,8 @@ class _SignUpState extends State<SignUp> {
               margin: EdgeInsets.only(top: 10),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("images/6.png"),
-                  fit: BoxFit.cover, //for fit image on page
+                  image: AssetImage("images/wellcome.png"),
+                  fit: BoxFit.fitHeight, //for fit image on page
                 ),
               ),
             ),
@@ -52,41 +53,47 @@ class _SignUpState extends State<SignUp> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          "SIGN UP",
+                          "SIGN UP:",
                           style: Theme.of(context).textTheme.displayLarge,
                         ),
                       ],
                     ),
-                   //  Spacer(),
+                    //  Spacer(),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
+                      padding: const EdgeInsets.only(bottom: 10),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Padding(
                             padding: const EdgeInsets.only(right: 16),
                             child: Icon(Icons.supervised_user_circle,
-                                color: prcolor),
+                                color: maincolor),
                           ),
                           Expanded(
                               child: TextField(
-                                controller: usernameeController,
+                                  controller: usernameeController,
                                   decoration: InputDecoration(
                                     hintText: "USER NAME",
                                     errorText: erruname,
-                          )))
+                                    hintStyle: TextStyle(
+                                        color: Colors.grey, fontSize: 12),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: maincolor), //<-- SEE HERE
+                                    ),
+                                  )))
                         ],
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
+                      padding: const EdgeInsets.only(bottom: 10),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Padding(
                             padding: const EdgeInsets.only(right: 16),
                             child: Icon(Icons.supervised_user_circle,
-                                color: prcolor),
+                                color: maincolor),
                           ),
                           Expanded(
                               child: TextField(
@@ -94,49 +101,40 @@ class _SignUpState extends State<SignUp> {
                                   decoration: InputDecoration(
                                     hintText: "First NAME",
                                     errorText: errfname,
+                                    hintStyle: TextStyle(
+                                        color: Colors.grey, fontSize: 12),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: maincolor), //<-- SEE HERE
+                                    ),
                                   )))
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(right: 16),
-                            child: Icon(Icons.supervised_user_circle,
-                                color: prcolor),
-                          ),
-                          Expanded(
-                              child: TextField(
-                                  controller: LastnameController,
-                                  decoration: InputDecoration(
-                                    hintText: "Last Name",
-                                    errorText: errlname,
-                                  )))
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(right: 16),
-                            child: Icon(Icons.email, color: prcolor),
-                          ),
-                          Expanded(
 
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(right: 16),
+                            child: Icon(Icons.email, color: maincolor),
+                          ),
+                          Expanded(
                               child: TextField(
-                                controller: emailController,
+                                  controller: emailController,
                                   keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
-                            hintText: "Email Address",
+                                    hintText: "Email Address",
                                     errorText: erremail,
-
-                          )))
+                                    hintStyle: TextStyle(
+                                        color: Colors.grey, fontSize: 12),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: maincolor), //<-- SEE HERE
+                                    ),
+                                  )))
                         ],
                       ),
                     ),
@@ -145,24 +143,55 @@ class _SignUpState extends State<SignUp> {
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.only(right: 16),
-                          child: Icon(Icons.lock, color: prcolor),
+                          child: Icon(Icons.lock, color: maincolor),
                         ),
                         Expanded(
-
                             child: TextField(
                                 obscureText: true,
-                              controller: passworddController,
+                                controller: passworddController,
                                 decoration: InputDecoration(
-                                   hintText: "Password",
+                                  hintText: "Password",
                                   errorText: errpass,
+                                  hintStyle: TextStyle(
+                                      color: Colors.grey, fontSize: 12),
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: maincolor), //<-- SEE HERE
+                                  ),
                                   suffixIcon: InkWell(
                                     onTap: _toglepass,
                                     child: Icon(
                                       Icons.visibility,
                                     ),
                                   ),
-                        )))
+                                )))
                       ],
+                    ),
+                                        Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(right: 16),
+                            child: Icon(Icons.supervised_user_circle,
+                                color: maincolor),
+                          ),
+                          Expanded(
+                              child: TextField(
+                                  controller: LastnameController,
+                                  decoration: InputDecoration(
+                                    hintText: "Last Name",
+                                    errorText: errlname,
+                                    hintStyle: TextStyle(
+                                        color: Colors.grey, fontSize: 12),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: maincolor), //<-- SEE HERE
+                                    ),
+                                  )))
+                        ],
+                      ),
                     ),
                     Spacer(),
                     Padding(
@@ -176,16 +205,14 @@ class _SignUpState extends State<SignUp> {
                                 Navigator.push(context, MaterialPageRoute(
                                   builder: (context) {
                                     return SignIn();
-
-
                                   },
                                 ));
                                 setState(() {
-                                  erruname=null;
-                                  errfname=null;
-                                  errlname=null;
-                                  erremail=null;
-                                  errpass=null;
+                                  erruname = null;
+                                  errfname = null;
+                                  errlname = null;
+                                  erremail = null;
+                                  errpass = null;
                                 });
                               },
                               //************************************************************************************** */
@@ -193,7 +220,7 @@ class _SignUpState extends State<SignUp> {
                                 padding: EdgeInsets.all(15),
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: prcolor,
+                                  color: maincolor,
                                 ),
                                 child: Icon(
                                   Icons.arrow_back,
@@ -209,7 +236,7 @@ class _SignUpState extends State<SignUp> {
                             padding: EdgeInsets.all(15),
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Colors.white.withOpacity(0.2),
+                              color: Colors.black.withOpacity(0.2),
                             ),
                             child: Icon(
                               Icons.facebook_outlined,
@@ -221,82 +248,60 @@ class _SignUpState extends State<SignUp> {
                             child: GestureDetector(
                               //*************************************************************************************** */
                               onTap: () {
-
-                                if(usernameeController.text.isEmpty)
-                                  {
-                                    setState(() {
-                                      erruname="Not valid Username";
-                                    });
-
-                                  }
-                                else
-                                  {
+                                if (usernameeController.text.isEmpty) {
                                   setState(() {
-                                  erruname=null;
+                                    erruname = "Not valid Username";
                                   });
-                                  }
-                                 if(FirstnameController.text.isEmpty)
-                                  {
-                                    setState(() {
-                                      errfname="Not valid Firstname";
-                                    });
-
-                                  }
-                                 else
-                                 {
-                                   setState(() {
-                                     errfname=null;
-                                   });
-                                 }
-                                 if(LastnameController.text.isEmpty)
-                                  {
-                                    setState(() {
-                                      errlname="Not valid Lastname";
-
-                                    });
-
-                                  }
-                                 else
-                                 {
-                                   setState(() {
-                                     errlname=null;
-                                   });
-                                 }
-                                 if(emailController.text.isEmpty)
-                                  {
-                                    setState(() {
-                                      erremail="Not valid Email";
-                                    });
-
-                                  }
-                                 else
-                                 {
-                                   setState(() {
-                                     erremail=null;
-                                   });
-                                 }
-                                 if(passworddController.text.isEmpty)
-                                  {
-                                    setState(() {
-                                      errpass="Not valid Password";
-                                    });
-
-                                  }
-
-                                else
-                                  {
+                                } else {
                                   setState(() {
-                                    errpass=null;
+                                    erruname = null;
                                   });
-                                  }
+                                }
+                                if (FirstnameController.text.isEmpty) {
+                                  setState(() {
+                                    errfname = "Not valid Firstname";
+                                  });
+                                } else {
+                                  setState(() {
+                                    errfname = null;
+                                  });
+                                }
+                                if (LastnameController.text.isEmpty) {
+                                  setState(() {
+                                    errlname = "Not valid Lastname";
+                                  });
+                                } else {
+                                  setState(() {
+                                    errlname = null;
+                                  });
+                                }
+                                if (emailController.text.isEmpty) {
+                                  setState(() {
+                                    erremail = "Not valid Email";
+                                  });
+                                } else {
+                                  setState(() {
+                                    erremail = null;
+                                  });
+                                }
+                                if (passworddController.text.isEmpty) {
+                                  setState(() {
+                                    errpass = "Not valid Password";
+                                  });
+                                } else {
+                                  setState(() {
+                                    errpass = null;
+                                  });
+                                }
                                 // signup(context)
                                 print("hi im hosny");
-                                  signup( usernameeController.text,
-                                      FirstnameController.text,
-                                      LastnameController.text,
-                                      emailController.text,
-                                      passworddController.text,
-                                      context);
+                                signup(
+                                    usernameeController.text,
+                                    FirstnameController.text,
+                                    LastnameController.text,
+                                    emailController.text,
+                                    passworddController.text,
+                                    context);
 
                                 // Navigator.push(context, MaterialPageRoute(
                                 //   builder: (context) {
@@ -307,18 +312,18 @@ class _SignUpState extends State<SignUp> {
                               },
                               //************************************************************************************** */
 
-                            child: Container(
-                              padding: EdgeInsets.all(15),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: prcolor,
-                              ),
-                              child: Icon(
-                                Icons.create,
-                                color: Colors.white,
+                              child: Container(
+                                padding: EdgeInsets.all(15),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: maincolor,
+                                ),
+                                child: Icon(
+                                  Icons.create,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
-                          ),
                           ),
                         ],
                       ),
@@ -331,46 +336,40 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  signup(String username,String firstname,String lastname,String email, String password, BuildContext contextt) async {
-
+  signup(String username, String firstname, String lastname, String email,
+      String password, BuildContext contextt) async {
     print("hi im omar");
-    var response =await http.post(Uri.parse("http://192.168.1.65:8090/api/v1/user/addUser"),body:json.encode({
-    'userName':username,
-    'firstName':firstname,
-    'lastName':lastname,
-    'email':email,
-    'password':password,
-      'role' : "User"
+    var response = await http
+        .post(Uri.parse("http://192.168.1.65:8090/api/v1/user/addUser"),
+            body: json.encode({
+              'userName': username,
+              'firstName': firstname,
+              'lastName': lastname,
+              'email': email,
+              'password': password,
+              'role': "User"
+            }),
+            headers: {"content-type": "application/json"});
 
-    }), headers: {"content-type": "application/json"});
+    if (response.statusCode == 200) {
+      print('account is creted ');
 
-    if(response.statusCode==200)
-  {
-    print('account is creted ');
+      usernameeController.text = "";
+      FirstnameController.text = "";
+      LastnameController.text = "";
+      emailController.text = "";
+      passworddController.text = "";
 
-    usernameeController.text="";
-    FirstnameController.text="";
-    LastnameController.text="";
-    emailController.text="";
-    passworddController.text="";
-
-    final snakbar =SnackBar(content: Text("Account is Created"));
-    ScaffoldMessenger.of(context).showSnackBar(snakbar);
-
-  }
-else{
-  print(response.statusCode);
-}
-
-
-
+      final snakbar = SnackBar(content: Text("Account is Created"));
+      ScaffoldMessenger.of(context).showSnackBar(snakbar);
+    } else {
+      print(response.statusCode);
+    }
   }
 
-
-  void _toglepass(){
-
-    setState((){
-      hiddenpaas=!hiddenpaas;
+  void _toglepass() {
+    setState(() {
+      hiddenpaas = !hiddenpaas;
     });
   }
 }
